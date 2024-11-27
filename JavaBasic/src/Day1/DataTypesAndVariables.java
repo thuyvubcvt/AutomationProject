@@ -3,7 +3,7 @@ package day1;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class DataTypesAndVariables {
+ public class  DataTypesAndVariables {
     //Ex1
     public  void printHelloWorld(){
         System.out.println("Hello World");

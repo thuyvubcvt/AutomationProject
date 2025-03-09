@@ -4,16 +4,16 @@ import java.util.Scanner;
 
 public class Operation {
     //Ex8
-    public void printf(){
+    public void printf() {
         int x = 20;
-        String sup = (x <15) ?"small":(x < 22)?"tiny":"huge";
+        String sup = (x < 15) ? "small" : (x < 22) ? "tiny" : "huge";
 
         System.out.println(sup);
 
     }
+
     //Ex9
-    public void calculateSpeed()
-    {
+    public void calculateSpeed() {
         Scanner scanner = new Scanner(System.in);
 
         // Input distance in meters
@@ -48,9 +48,9 @@ public class Operation {
         System.out.println("Your speed in miles/h is " + speedInMilesPerHour);
 
     }
+
     //Ex10
-    public void performOperations()
-    {
+    public void performOperations() {
         Scanner scanner = new Scanner(System.in);
 
         // Nhập hai số nguyên từ người dùng
@@ -78,8 +78,9 @@ public class Operation {
         System.out.println("Số lớn nhất là: " + maximum);
         System.out.println("Số nhỏ nhất là: " + minimum);
     }
-//Ex11
-    public void BreakIntegerIntoDigits(){
+
+    //Ex11
+    public void BreakIntegerIntoDigits() {
         Scanner scanner = new Scanner(System.in);
 
         // Input the integer
@@ -99,7 +100,7 @@ public class Operation {
             }
         }
     }
-    }
+}
 
 
 

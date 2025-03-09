@@ -26,25 +26,24 @@ public class DecisionMaking {
 
 
     //Ex13
- public void ConvertMinutesToYearsAndDays(int minutes )
- {
-     int minutesInAnHour = 60;
-     int hoursInADay = 24;
-     int daysInAYear = 365;
+    public static void ConvertMinutesToYearsAndDays(int minutes) {
+        int minutesInAnHour = 60;
+        int hoursInADay = 24;
+        int daysInAYear = 365;
 
-     // Convert minutes to total number of days
-     int totalDays = minutes / (minutesInAnHour * hoursInADay);
+        // Convert minutes to total number of days
+        int totalDays = minutes / (minutesInAnHour * hoursInADay);
 
-     // Calculate the number of years
-     int years = totalDays / daysInAYear;
+        // Calculate the number of years
+        int years = totalDays / daysInAYear;
 
-     // Calculate remaining days
-     int remainingDays = totalDays % daysInAYear;
+        // Calculate remaining days
+        int remainingDays = totalDays % daysInAYear;
 
-     // Print the result
-     System.out.println(minutes + " minutes is approximately " + years + " years and " + remainingDays + " days");
- }
- }
+        // Print the result
+        System.out.println(minutes + " minutes is approximately " + years + " years and " + remainingDays + " days");
+    }
+}
 
 
 

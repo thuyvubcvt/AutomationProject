@@ -9,24 +9,24 @@ public class Student {
     }
 
     public void setAge(int age) {
-   int i=10;
+        
         if (age < 0) {
 
             System.out.println("invalid age");
 
         }
 
-       this.age=age;
-}
+        this.age = age;
+    }
 
 
-public static void main(String[] args) {
-    Student student = new Student();
-    student.setAge(-10);
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.setAge(-10);
 
-    System.out.println("age" + student.getAge());
+        System.out.println("age" + student.getAge());
 
 
-}
+    }
 }
 

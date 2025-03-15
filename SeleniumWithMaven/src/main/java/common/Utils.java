@@ -15,12 +15,16 @@ public class Utils {
             Sheet sheet = workbook.getSheet(sheetName);
             int rowNum = sheet.getRows();
             int columnNum = sheet.getColumns();
-            dataTable = new String[rowNum - 1][columnNum];
-            //int i, j=0;
-            for (int i = 1; i < rowNum - 1; i++) {
-                for (int j = 0; j < columnNum - 1; j++) {
-                    dataTable[i][j] = sheet.getCell(j, i).getContents();
+            dataTable = new String[rowNum][columnNum];
+            int rowIdx=0;
+
+            for (int i = 0; i < rowNum-1; i++) {
+                rowIdx=rowIdx+1;
+                for (int j = 0; j < columnNum; j++) {
+                    dataTable[i][j] = sheet.getCell(j,rowIdx).getContents();
+                    System.out.println(dataTable[i][j]);
                 }
+
             }
         } catch (Exception e) {
             // e.printStackTrace();

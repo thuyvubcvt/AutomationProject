@@ -15,24 +15,26 @@ public class WebTableTest extends TestCase {
 
     @Test(dataProvider = "RegistrationData")
     public void searchByFirstNameSuccessfully(RegistrationEntity registrationEntity) {
-        System.out.println(registrationEntity.getFirstName());
-
-        WebTablePage webTablePage = new WebTablePage(testBasic.driver);
-        webTablePage.goToWebTablePage();
-        String keywordSearch = "thuy";
-//        String firstName="thuy";
-//        String lastName="vu";
-//        String email="vuthuy@gmail.com";
-//        String age="40";
-//        String salary="10000";
-//        String department="IT";
-        webTablePage.clickBtnAdd();
-        RegistrationFormPage registrationFormPage = new RegistrationFormPage(testBasic.driver);
+        WebTablePage webTablePageDefault = new WebTablePage(testBasic.driver);
+        webTablePageDefault.goToWebTablePage();
+        RegistrationFormPage registrationFormPage = webTablePageDefault.clickBtnAdd(); // new RegistrationFormPage(testBasic.driver);
         registrationFormPage.inputForm(registrationEntity);
-        registrationFormPage.clickBtnSubmit();
-        webTablePage.inputTextBoxSearch(keywordSearch);
-        String actualResultSearchFirstName = webTablePage.getActualString(webTablePage.resultSearchFristName);
-        Assert.assertEquals(actualResultSearchFirstName, keywordSearch);
+        WebTablePage webTablePage=registrationFormPage.clickBtnSubmit();
+        webTablePage.inputTextBoxSearch(registrationEntity.getFirstName());
+        String actualFirstName = webTablePage.testBasic.getActualString(webTablePage.resultSearchFirstName);
+        Assert.assertEquals(actualFirstName, registrationEntity.getFirstName());
+
+    }
+   // @Test(dataProvider = "RegistrationData")
+    public void searchByLastNameSuccessfully(RegistrationEntity registrationEntity) {
+        WebTablePage webTablePageDefault = new WebTablePage(testBasic.driver);
+        webTablePageDefault.goToWebTablePage();
+        RegistrationFormPage registrationFormPage = webTablePageDefault.clickBtnAdd(); // new RegistrationFormPage(testBasic.driver);
+        registrationFormPage.inputForm(registrationEntity);
+        WebTablePage webTablePage = registrationFormPage.clickBtnSubmit();
+        webTablePage.inputTextBoxSearch(registrationEntity.getLastName());
+        String actualResultSearchFirstName = webTablePage.testBasic.getActualString(webTablePage.resultSearchFirstName);
+        Assert.assertEquals(actualResultSearchFirstName, registrationEntity.getLastName());
 
     }
 

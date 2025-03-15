@@ -32,6 +32,7 @@ public class TextBoxPage extends Page {
     public String getActualString(By locator) {
         String actualString = "";
         String originalString = driver.findElement(locator).getText();
+        System.out.println(originalString);
         int indexOfColon = originalString.indexOf(":");
         actualString = originalString.substring(indexOfColon + 1);
         return actualString;

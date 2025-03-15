@@ -7,7 +7,7 @@ public class WebTablePage extends Page {
 
     public By txtSearch = By.id("searchBox");
     public By btnAdd = By.id("addNewRecordButton");
-    public By resultSearchFristName=By.xpath("//div/div[@role='rowgroup'][1]/div/div[1]");
+    public By resultSearchFirstName=By.xpath("//div/div[@role='rowgroup'][1]/div/div[1]");
 
     public WebTablePage(WebDriver dr) {
         super(dr);
@@ -24,13 +24,7 @@ public class WebTablePage extends Page {
         driver.findElement(txtSearch).sendKeys(keywordSearch);
     }
 
-    public String getActualString(By locator) {
-        String actualString = "";
-        String originalString = driver.findElement(locator).getText();
 
-        return actualString;
-
-    }
 
 }
 

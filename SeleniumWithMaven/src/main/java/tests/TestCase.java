@@ -8,6 +8,6 @@ public class TestCase {
     @BeforeTest
     public  void setUp(){
         testBasic.openWebsite("chrome");
-        System.out.println("in1"+testBasic.driver);
+
     }
 }

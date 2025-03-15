@@ -14,7 +14,6 @@ public class CheckBoxPage extends Page {
    // public By checkboxName = By.xpath("//span[@class='rct-checkbox']/*[name()='svg']");
     public String chkItem = "//*[text()='@param']/preceding-sibling::span[2]/*[name()='svg']";
 
-
     public CheckBoxPage(WebDriver dr) {
         super(dr);
     }

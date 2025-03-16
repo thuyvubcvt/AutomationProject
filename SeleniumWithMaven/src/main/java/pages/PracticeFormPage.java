@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import tests.models.ConfigurationsEntity;
 
 
 public class PracticeFormPage extends Page {
@@ -30,8 +31,8 @@ public class PracticeFormPage extends Page {
     public By btnSubmit = By.id("submit");
 
 
-    public PracticeFormPage(WebDriver dr) {
-        super(dr);
+    public PracticeFormPage(WebDriver dr, ConfigurationsEntity configurationsEntity) {
+        super(dr,configurationsEntity);
     }
 
     public ThanksForSubmittingTheFormPage inputData(String LastName, String FirstName, String Email, String gender, String Phone,
@@ -60,7 +61,7 @@ public class PracticeFormPage extends Page {
         selectValueInDropdownBox(txtCity,ddlCity,city);
 
         driver.findElement(btnSubmit).click();
-        return new ThanksForSubmittingTheFormPage(driver);
+        return new ThanksForSubmittingTheFormPage(driver,config);
     }
 
     public void inputBirthDay(String birthday) {

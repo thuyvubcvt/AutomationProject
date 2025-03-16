@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests.models.ConfigurationsEntity;
 
 public class TextBoxPage extends Page {
 
@@ -17,8 +18,8 @@ public class TextBoxPage extends Page {
     public By lblAddress = By.xpath("//p[@id='currentAddress']");
     public By lblPermanentAddress = By.xpath("//p[@id='permanentAddress']");
 
-    public TextBoxPage(WebDriver dr) {
-        super(dr);
+    public TextBoxPage(WebDriver dr, ConfigurationsEntity configurationsEntity) {
+        super(dr,configurationsEntity);
     }
 
     public void inputData(String userName, String userEmail, String currentAddress, String permanentAddress) {
@@ -26,6 +27,9 @@ public class TextBoxPage extends Page {
         driver.findElement(txtEmail).sendKeys(userEmail);
         driver.findElement(txtCurrentAddress).sendKeys(currentAddress);
         driver.findElement(txtPermanentAddress).sendKeys(permanentAddress);
+
+    }
+    public void clickToSubmit(){
         driver.findElement(btnSubmit).click();
     }
 

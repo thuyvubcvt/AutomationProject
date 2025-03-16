@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import tests.models.ConfigurationsEntity;
 
 import java.util.List;
 
@@ -14,8 +15,8 @@ public class CheckBoxPage extends Page {
    // public By checkboxName = By.xpath("//span[@class='rct-checkbox']/*[name()='svg']");
     public String chkItem = "//*[text()='@param']/preceding-sibling::span[2]/*[name()='svg']";
 
-    public CheckBoxPage(WebDriver dr) {
-        super(dr);
+    public CheckBoxPage(WebDriver dr, ConfigurationsEntity configurationsEntity) {
+        super(dr,configurationsEntity);
     }
 
 

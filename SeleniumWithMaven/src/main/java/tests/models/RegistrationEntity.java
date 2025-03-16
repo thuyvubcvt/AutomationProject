@@ -4,9 +4,6 @@ public class RegistrationEntity {
     private String firstName;
     private String lastName;
     private String email;
-
-
-
     private String age;
     private String salary;
     private String department;
@@ -18,8 +15,6 @@ public class RegistrationEntity {
         this.age = age;
         this.salary = salary;
         this.department = department;
-    }
-    public RegistrationEntity() {
     }
 
     public String getLastName() {
@@ -46,27 +41,4 @@ public class RegistrationEntity {
         return department;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
-    }
-
-    public void setSalary(String salary) {
-        this.salary = salary;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
 }

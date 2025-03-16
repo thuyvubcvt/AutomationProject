@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests.models.ConfigurationsEntity;
 import tests.models.RegistrationEntity;
 
 public class RegistrationFormPage extends Page {
@@ -14,8 +15,8 @@ public class RegistrationFormPage extends Page {
     By txtDepartment = By.id("department");
     By btnSubmit = By.id("submit");
 
-    public RegistrationFormPage(WebDriver dr) {
-        super(dr);
+    public RegistrationFormPage(WebDriver dr, ConfigurationsEntity configurationsEntity) {
+        super(dr,configurationsEntity);
     }
 
     public void inputForm(RegistrationEntity registrationEntity) {
@@ -31,7 +32,7 @@ public class RegistrationFormPage extends Page {
 
     public WebTablePage clickBtnSubmit() {
         driver.findElement(btnSubmit).click();
-        return new WebTablePage(driver);
+        return new WebTablePage(driver,config);
     }
 
 }

@@ -7,7 +7,7 @@ import java.io.File;
 
 
 public class Utils {
-    public String[][] readExelFile(String excelFileName, String sheetName) {
+    public String[][] readExcelFile(String excelFileName, String sheetName) {
         String excelFile = System.getProperty("user.dir") + "/testdata/" + excelFileName;
         String[][] dataTable = null;
         try {
@@ -15,21 +15,25 @@ public class Utils {
             Sheet sheet = workbook.getSheet(sheetName);
             int rowNum = sheet.getRows();
             int columnNum = sheet.getColumns();
-            dataTable = new String[rowNum][columnNum];
-            int rowIdx=0;
 
-            for (int i = 0; i < rowNum-1; i++) {
-                rowIdx=rowIdx+1;
+            // Skip header row (row 0)
+            dataTable = new String[rowNum - 1][columnNum];
+
+            for (int i = 1; i < rowNum; i++) { // start from row 1
                 for (int j = 0; j < columnNum; j++) {
-                    dataTable[i][j] = sheet.getCell(j,rowIdx).getContents();
-                    System.out.println(dataTable[i][j]);
+                    dataTable[i - 1][j] = sheet.getCell(j, i).getContents();
+                    System.out.println(dataTable[i - 1][j]);
                 }
-
             }
+
+            workbook.close(); // Important: close workbook
+
         } catch (Exception e) {
-            // e.printStackTrace();
-            System.out.println("Data not found" + e);
+            e.printStackTrace();
+            throw new RuntimeException("Error reading Excel file: " + e.getMessage(), e);
         }
+
         return dataTable;
     }
 }
+

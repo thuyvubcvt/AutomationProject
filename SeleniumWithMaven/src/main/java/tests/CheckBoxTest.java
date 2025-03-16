@@ -21,7 +21,7 @@ public class CheckBoxTest extends TestCase {
         String expectedText="You have selected : home desktop notes commands documents workspace react angular veu office public private classified general downloads wordFile excelFile";
 
 
-        HomePage homePage = new HomePage(testBasic.driver);
+        HomePage homePage = new HomePage(testBasic.driver,configurationsEntity);
 
         ElementsPage elementsPage = homePage.clickOnElement();
 

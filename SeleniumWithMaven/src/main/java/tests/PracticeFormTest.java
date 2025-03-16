@@ -19,7 +19,7 @@ public class PracticeFormTest extends TestCase {
         //System.out.println("hjhjhj"+testBasic.driver);
         //ElementsPage elementsPage = homePage.clickOnElement();
 
-        PracticeFormPage practiceFormPage=new PracticeFormPage(testBasic.driver);
+        PracticeFormPage practiceFormPage=new PracticeFormPage(testBasic.driver,configurationsEntity);
         practiceFormPage.goToPracticeForm();
         practiceFormPage.testBasic.zoomInOut(0.6f);
 
@@ -65,7 +65,7 @@ public class PracticeFormTest extends TestCase {
 
 @Test
     public void submitFail(){
-    PracticeFormPage practiceFormPage=new PracticeFormPage(testBasic.driver);
+    PracticeFormPage practiceFormPage=new PracticeFormPage(testBasic.driver,configurationsEntity);
     practiceFormPage.goToPracticeForm();
     practiceFormPage.testBasic.zoomInOut(0.6f);
     practiceFormPage.clickOnSubmit();

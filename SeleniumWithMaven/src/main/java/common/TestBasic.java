@@ -7,7 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import tests.models.ConfigurationsEntity;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -16,7 +20,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class TestBasic {
     public WebDriver driver;
-
+    public ConfigurationsEntity configs;
+    public TestBasic(ConfigurationsEntity configurationsEntity) {
+        this.configs=configurationsEntity;
+    }
     public void openWebsite(String browser) {
         String projectPath = System.getProperty("user.dir");
         System.setProperty("webdriver.chrome.driver", projectPath + "/driver/chromedriver");
@@ -27,8 +34,9 @@ public class TestBasic {
             driver = new EdgeDriver();
         }
         //open web: homepage
-        driver.get("https://demoqa.com/");
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        //driver.get("https://demoqa.com/");
+        driver.get(configs.url);
+        driver.manage().timeouts().implicitlyWait(Integer.valueOf(configs.timeOutLong), TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
 
@@ -49,6 +57,7 @@ public class TestBasic {
     }
 
     public void click(By locator) {
+        waitForElement(locator,Integer.valueOf(configs.timeOutLong));
         WebElement element = driver.findElement(locator);
         if (element.isDisplayed()) {
             element.click();
@@ -58,6 +67,7 @@ public class TestBasic {
     }
 
     public void selectDropdownBox(By locator, String text) {
+        waitForElement(locator,Integer.valueOf(configs.timeOutMedium));
         WebElement element = driver.findElement(locator);
         Select select = new Select(element);
         select.selectByVisibleText(text);
@@ -77,6 +87,13 @@ public class TestBasic {
     }
 
     public String getActualString(By locator) {
+        waitForElement(locator,Integer.valueOf(configs.timeOutMedium));
         return driver.findElement(locator).getText();
+    }
+
+    public void waitForElement(By locator, int timeout){
+        WebElement webElement=driver.findElement(locator);
+        Wait<WebDriver> wait=new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        wait.until(d->webElement.isDisplayed());
     }
 }

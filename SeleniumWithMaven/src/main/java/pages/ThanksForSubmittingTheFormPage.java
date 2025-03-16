@@ -2,12 +2,13 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import tests.models.ConfigurationsEntity;
 
 public class ThanksForSubmittingTheFormPage extends Page {
 
     public String valueXpath="//td[text()='@param']/following-sibling::td";
-    public ThanksForSubmittingTheFormPage(WebDriver dr) {
-        super(dr);
+    public ThanksForSubmittingTheFormPage(WebDriver dr, ConfigurationsEntity configurationsEntity) {
+        super(dr,configurationsEntity);
     }
  public String getTextByLocator(String valueXpath,String fieldName)
  {
